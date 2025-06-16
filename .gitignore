@@ -1,0 +1,17 @@
+## Visual Studio
+.vs/
+*.user
+*.suo
+
+## Build results
+bin/
+obj/
+
+## SQL Server related (backups, local files)
+*.mdf
+*.ldf
+
+## Others
+*.log
+*.db
+*.bak
