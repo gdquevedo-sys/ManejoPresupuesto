@@ -1,4 +1,6 @@
-﻿using ManejoPresupuesto.Validaciones;
+﻿
+
+using ManejoPresupuesto.Validaciones;
 using System.ComponentModel.DataAnnotations;
 
 namespace ManejoPresupuesto.Models
@@ -13,7 +15,7 @@ namespace ManejoPresupuesto.Models
         [Display(Name = "Tipo Cuenta")]
         public int TipoCuentaId { get; set; }
         public decimal Balance { get; set; }
-        [StringLength(maximumLength:1000)]
+        [StringLength(maximumLength: 1000)]
         public string Descripcion { get; set; }
     }
 }
