@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using ManejoPresupuesto.Models;
 using ManejoPresupuesto.Servicios;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel;
 
 namespace ManejoPresupuesto.Controllers
 {
@@ -141,6 +143,21 @@ namespace ManejoPresupuesto.Controllers
             await repositorioTransacciones.Actualizar(transaccion,
                 modelo.MontoAnterior, modelo.CuentaAnteriorId);
 
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Borrar(int id)
+        {
+            var usuarioId = servicioUsuarios.ObtenerUsuarioId();
+            var transaccion = await repositorioTransacciones.ObtenerPorId(id, usuarioId);
+
+            if (transaccion is null)
+            {
+                return RedirectToAction("NoEncntrado", "Home");
+            }
+
+            await repositorioTransacciones.Borrar(id);
             return RedirectToAction("Index");
         }
 
