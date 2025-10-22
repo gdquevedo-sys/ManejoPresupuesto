@@ -9,6 +9,7 @@
     };
 }
 
+
 <partial name="_NavegarPorMeses" model="@Model.FechaInicio" />
 
 <partial name="_ResumenMontos" model="@resumenMontos" />
@@ -24,8 +25,8 @@ else
         <tbody>
             @foreach (var transaccionAgrupada in Model.TransaccionesAgrupadas)
             {
-                <tr style="background-color: lightblue; font-size: 26px">
-                    <td colspan="3">
+                <tr class="franja-celeste">
+                    <td colspan="5" style="padding: 12px;">
                         @transaccionAgrupada.FechaTransaccion.Day
                         <span class="badge bg-secondary">
                             @transaccionAgrupada.FechaTransaccion.ToString("ddd")
@@ -47,13 +48,14 @@ else
                         <td>@transaccion.Cuenta</td>
                         <td class="activo">
                             @(transaccion.TipoOperacionId == TipoOperacion.Ingreso
-                                ? transaccion.Monto.ToString("N") : null)
+                                            ? transaccion.Monto.ToString("N") : null)
+
                         </td>
                         <td class="pasivo">
                             @(transaccion.TipoOperacionId == TipoOperacion.Gasto
-                                ? transaccion.Monto.ToString("N") : null)
-                        </td>
-                    </tr>
+                                            ? transaccion.Monto.ToString("N") : null)
+            </td>
+        </tr>
                 }
             }
         </tbody>
