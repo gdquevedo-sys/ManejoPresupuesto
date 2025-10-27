@@ -453,7 +453,11 @@ namespace ManejoPresupuesto.Controllers
             TipoOperacion tipoOperacion)
         {
             var categorias = await repositorioCategorias.Obtener(usuarioId, tipoOperacion);
-            return categorias.Select(x => new SelectListItem(x.Nombre, x.Id.ToString()));
+            var resultado = categorias
+                .Select(x => new SelectListItem(x.Nombre, x.Id.ToString())).ToList();
+            var opcionesPorDefecto = new SelectListItem("-- Seleccione una categoría --", "0", true);
+            resultado.Insert(0, opcionesPorDefecto);
+            return resultado;
         }
 
         [HttpPost]
