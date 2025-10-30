@@ -21,10 +21,19 @@
         <span asp-validation-for="CuentaId" class="text-danger"></span>
     </div>
 
+    @if (Model.Cuentas == null || !Model.Cuentas.Any())
+    {
+        <p style="color:red;">⚠️ No se cargaron cuentas para el usuario actual</p>
+    }
+    else
+    {
+        <p style="color:green;">✅ Se cargaron @Model.Cuentas.Count() cuentas</p>
+    }
+
     <div class="mb-3">
         <label asp-for="TipoOperacionId" class="form-label"></label>
         <select asp-for="TipoOperacionId" asp-items="Html.GetEnumSelectList<TipoOperacion>()"
-            class="form-select"></select>
+                class="form-select"></select>
         <span asp-validation-for="TipoOperacionId" class="text-danger"></span>
     </div>
 
@@ -33,6 +42,15 @@
         <select asp-for="CategoriaId" asp-items="Model.Categorias" class="form-select"></select>
         <span asp-validation-for="CategoriaId" class="text-danger"></span>
     </div>
+
+    @if (Model.Categorias == null || !Model.Categorias.Any())
+    {
+        <p style="color:red;">⚠️ No se cargaron categorías</p>
+    }
+    else
+    {
+        <p style="color:green;">✅ Se cargaron @Model.Categorias.Count() categorías</p>
+    }
 
     <div class="mb-3">
         <label asp-for="Monto" class="form-label"></label>

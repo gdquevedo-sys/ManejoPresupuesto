@@ -26,13 +26,17 @@ builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddTransient<IRepositorioUsuarios, RepositorioUsuarios>();
 builder.Services.AddTransient<IUserStore<Usuario>, UsuarioStore>();
 builder.Services.AddTransient<SignInManager<Usuario>>();
-builder.Services.AddIdentityCore<Usuario>(opciones => 
+
+builder.Services.AddIdentityCore<Usuario>(opciones =>
 {
     opciones.Password.RequireDigit = false;
     opciones.Password.RequireLowercase = false;
     opciones.Password.RequireUppercase = false;
     opciones.Password.RequireNonAlphanumeric = false;
-}).AddErrorDescriber<MensajesDeErrorIdentity>();
+})
+.AddErrorDescriber<MensajesDeErrorIdentity>()
+.AddDefaultTokenProviders();
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
@@ -42,6 +46,8 @@ builder.Services.AddAuthentication(options =>
 { 
     opciones.LoginPath = "/Usuarios/Login";
 });
+
+builder.Services.AddTransient<IServicioEmail, ServicioEmail>();
 
 var app = builder.Build();
 

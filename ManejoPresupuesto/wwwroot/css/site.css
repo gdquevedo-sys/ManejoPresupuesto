@@ -29,3 +29,27 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+.overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(255, 255, 255, 0.6); /* Blanco con 60% opacidad */
+    z-index: -1;
+}
+
+.border-top {
+    background-color: #1a1f36; /* Cambia este valor según el color que elijas */
+    color: #ffffff;
+    padding: 15px;
+    font-size: 0.9em;
+    border-top: 1px solid #444;
+}
+
+.border-top a {
+    color: #aad8ff; /* Enlaces en azul claro para contraste */
+    text-decoration: none;
+}
+
+.border-top a:hover {
+text-decoration: underline;
+}

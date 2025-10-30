@@ -1,4 +1,6 @@
-﻿namespace ManejoPresupuesto.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace ManejoPresupuesto.Models
 {
     public class Usuario
     {

@@ -4,6 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>af19e43e-d41c-4a0b-aba3-5b866c05ec31</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +12,10 @@
     <PackageReference Include="ClosedXML" Version="0.105.0" />
     <PackageReference Include="Dapper" Version="2.1.66" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 	
 </Project>
